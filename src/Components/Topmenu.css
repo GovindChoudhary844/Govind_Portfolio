@@ -1,0 +1,106 @@
+/* Topmenu.css */
+.logo-name {
+  font-family: cursive;
+  font-size: clamp(1.5625rem, 1.0417rem + 1.6667vw, 2.5rem);
+  font-weight: 700;
+  color: var(--third-color);
+}
+
+.top-mode-button {
+  cursor: pointer;
+  border-radius: 20%;
+  padding: 10px;
+  background: #f2f2f2;
+  box-shadow: -3px 3px 9px #929292;
+  transition: all 0.5s;
+}
+
+.top-menu-button {
+  border-radius: 20%;
+  padding: 10px;
+  background: var(--Fourth-color);
+  display: none;
+  color: var(--third-color);
+}
+
+.logo-image {
+  max-width: 80px;
+  width: 100%;
+  height: auto;
+}
+
+
+
+.top-navlink-button {
+  color: var(--third-color)
+}
+
+.top-navlink-button:hover {
+  color: #088F8F;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+}
+
+.top-navlink-button-icon {
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.menu-container {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.top-navbar-col {
+  transition: background-color 0.5s;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+@media (max-width: 767.98px) {
+  .top-navbar {
+    height: 140px !important;
+  }
+
+  .logo-image {
+    max-width: 80px;
+    width: 50%;
+    height: auto;
+  }
+
+}
+
+@media (max-width: 1399px) {
+
+  .top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .top-menu-button {
+    display: block;
+    cursor: pointer;
+  }
+
+}
+
+@media (min-width: 1400px) {
+  .top-navbar-col {
+    height: 100px !important;
+    margin-top: 20px;
+  }
+
+}
