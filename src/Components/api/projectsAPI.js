@@ -83,7 +83,7 @@ const projectsAPI = [
   },
   {
     id: 3,
-    name: "2D Top-Down RPG Game",
+    name: "2D Top Down RPG Game",
     subname: "2D Top-Down RPG",
     GitHub_Link: "https://github.com/GovindChoudhary844/2D-Top-Down-RPG",
     Game_Link: "https://govindchoudhary844.github.io/2D-Top-Down-RPG-URL/",
