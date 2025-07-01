@@ -47,23 +47,23 @@
   color: #fff;
 }
 
-.bg-twitter {
+.bg-instagram {
   background-color: rgb(220, 220, 220);
   border-radius: 15px;
   transition: 0.5s;
 }
 
-.bg-twitter:hover {
-  background-color: #1DA1F2;
+.bg-instagram:hover {
+  background-color: #d816f1;
   border-radius: 15px;
 }
 
-.bg-twitter i {
-  color: #1DA1F2;
+.bg-instagram i {
+  color: #ec75fc;
   transition: transform 0.2s ease-in-out;
 }
 
-.bg-twitter i:hover {
+.bg-instagram i:hover {
   transform: scale(1.1);
   color: #fff;
 }

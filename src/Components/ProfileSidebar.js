@@ -43,13 +43,22 @@ function ProfileSidebar() {
 
               <Row className="social-icons d-flex my-3">
                 <Col className="d-flex justify-content-center gap-2">
-                  <a href="#" className="bg-github">
+                  <a
+                    href="https://github.com/GovindChoudhary844"
+                    className="bg-github"
+                  >
                     <i className="fa-brands fa-github p-3 resp-h5"></i>
                   </a>
-                  <a href="#" className="bg-twitter">
-                    <i className="fa-brands fa-twitter p-3 resp-h5"></i>
+                  <a
+                    href="https://www.instagram.com/govindchaudhary0001__/"
+                    className="bg-instagram"
+                  >
+                    <i className="fa-brands fa-instagram p-3 resp-h5"></i>
                   </a>
-                  <a href="#" className="bg-linkedin">
+                  <a
+                    href="https://www.linkedin.com/in/govind-choudhary-/"
+                    className="bg-linkedin"
+                  >
                     <i className="fa-brands fa-linkedin-in p-3 resp-h5"></i>
                   </a>
                 </Col>
