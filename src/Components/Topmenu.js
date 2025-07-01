@@ -191,9 +191,9 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="fa-light fa-briefcase top-navlink-button-icon"></i>
+                        <i className="fa-light fa-gamepad top-navlink-button-icon"></i>
                       </span>
-                      Works
+                      My Games
                     </Nav.Link>
                     <Nav.Link
                       as={Link}

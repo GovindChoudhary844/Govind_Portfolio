@@ -77,12 +77,12 @@ const CustomNavbar = () => {
               <Nav.Link as={Link} to="/works" className="navlink-button">
                 <span>
                   <i
-                    className="fa-light fa-briefcase"
+                    className="fa-light fa-gamepad"
                     style={{ fontSize: "25px" }}
                   ></i>
                 </span>
                 <br />
-                Works
+                My Games
               </Nav.Link>
               <Nav.Link as={Link} to="/contact" className="navlink-button">
                 <span>

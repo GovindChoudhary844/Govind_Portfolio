@@ -216,6 +216,37 @@ const projectsAPI = [
       "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
     ],
   },
+  {
+    id: 7,
+    name: "Angry Bird",
+    subname: "Angry Bird Game",
+    GitHub_Link: "https://github.com/GovindChoudhary844/AngryBird",
+    Game_Link: "https://govindchoudhary844.github.io/AngryBird_WebGL/",
+    description: (
+      <>
+        <div className="resp-h2">Angry Bird</div>
+        <br />
+        1. Developed a physics-based 2D Angry Bird-style game using Unity.
+        <br />
+        2. Implemented a slingshot mechanic for launching birds toward enemy
+        structures.
+        <br />
+        3. Designed destructible environments using rigidbodies and colliders.
+        <br />
+        4. Created multiple levels with increasing difficulty and strategic
+        layouts.
+        <br />
+        5. Focused on smooth gameplay, realistic physics, and engaging visuals.
+      </>
+    ),
+    imagecharacter: "Images/Projects/Angry Bird/Front.png",
+    imagesDesktop: [
+      "Images/Projects/Angry Bird/Front.png",
+      "Images/Projects/Angry Bird/Front.png",
+      "Images/Projects/Angry Bird/Front.png",
+      "Images/Projects/Angry Bird/Front.png",
+    ],
+  },
 ];
 
 export default projectsAPI;
