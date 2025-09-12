@@ -31,7 +31,7 @@ function ProfileSidebar() {
                 <p
                   className="text-center d-flex justify-content-center align-items-center profile-feild my-3"
                   style={{
-                    width: "50%",
+                    width: "100%",
                     backgroundColor: "#DCDCDC",
                     borderRadius: "10px",
                     height: "35px",
@@ -156,7 +156,7 @@ function ProfileSidebar() {
                 <Col className="d-flex justify-content-center align-items-center my-3 mb-5">
                   <Button
                     className="bg-green resp-text"
-                    href="https://drive.google.com/file/d/1EVGFtSLTleL45bG3PinfHysBduLzD4O0/view?usp=sharing"
+                    href="https://drive.google.com/file/d/1z7B8J1NpCcYV72MQi2p-JbqhpozvMGZY/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     download

@@ -192,7 +192,8 @@ const projectsAPI = [
     name: "Zombie TPS Game",
     subname: "Open World Game",
     GitHub_Link: "https://github.com/GovindChoudhary844/Ludo",
-    Game_Link: "https://www.youtube.com/embed/f4kF9cBEGow",
+    Game_Link:
+      "https://www.youtube-nocookie.com/embed/f4kF9cBEGow?autoplay=0&rel=0&modestbranding=1",
     description: (
       <>
         <div className="resp-h2">Zombie TPS</div>
@@ -245,6 +246,75 @@ const projectsAPI = [
       "Images/Projects/Angry Bird/Front.png",
       "Images/Projects/Angry Bird/Front.png",
       "Images/Projects/Angry Bird/Front.png",
+    ],
+  },
+  {
+    id: 8,
+    name: "SnakeRush",
+    subname: "Multiplayer Game",
+    GitHub_Link:
+      "https://github.com/CreatersWithBestMind/MultiGameProject/tree/main/MultiGame%20Project/Assets/SnakeRush",
+    Game_Link:
+      "https://www.youtube-nocookie.com/embed/FWqvyjuSJAY?autoplay=0&rel=0& modestbranding=1",
+    description: (
+      <>
+        <div className="resp-h2">Snake Rush – Multiplayer</div>
+        <br />
+        1. A real-time, competitive climb-'em-up where your snake races
+        endlessly upward through a deadly wall of numbered blocks.
+        <br />
+        <br />
+        2. Crash into a block and its value drops while your snake loses the
+        same amount of body segments—strategy matters more than brute force.
+        <br />
+        <br />
+        3. Collect glowing “body-part balls” scattered on the path; each ball
+        carries a random integer that instantly grows your tail by that exact
+        count.
+        <br />
+        <br />
+        4. Grab lightning-bolt power-ups to enter hyper-speed: every block you
+        touch vaporises in a single hit and its points are banked straight to
+        your score.
+        <br />
+        <br />
+        5. Blocks react visually—shifting hue from solid to cracked to
+        crimson—as they absorb damage, giving instant feedback on how close they
+        are to breaking.
+        <br />
+        <br />
+        6. Score logic rewards aggression: the exact damage you deal to a block
+        is added to your running total; when the level ends, every surviving
+        segment delivers a bonus payout.
+        <br />
+        <br />
+        7. Built for head-to-head rivalry: a sleek lobby lets two players join,
+        countdown starts, then each contender has exactly 2 minutes 30 seconds
+        to rack up the highest score.
+        <br />
+        <br />
+        8. Session ends with a splash-screen crown for the winner and a
+        one-click download link so you can keep the bragging rights forever.
+        <br />
+        <br />
+        <div className="resp-h6">
+          DownLoad Link:{" "}
+          <a
+            href="https://drive.google.com/file/d/1w5MfZwBkbJgGdJRM0AoHn0m4rXvCYty7/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://drive.google.com/file/d/1w5MfZwBkbJgGdJRM0AoHn0m4rXvCYty7/view?usp=sharing
+          </a>
+        </div>
+      </>
+    ),
+    imagecharacter: "Images/Projects/SnakeRush/SnakeRush.png",
+    imagesDesktop: [
+      "Images/Projects/SnakeRush/SnakeRush.png",
+      "Images/Projects/SnakeRush/SnakeRush.png",
+      "Images/Projects/SnakeRush/SnakeRush.png",
+      "Images/Projects/SnakeRush/SnakeRush.png",
     ],
   },
 ];
