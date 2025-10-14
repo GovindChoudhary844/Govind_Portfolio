@@ -252,8 +252,7 @@ const projectsAPI = [
     id: 8,
     name: "SnakeRush",
     subname: "Multiplayer Game",
-    GitHub_Link:
-      "https://github.com/CreatersWithBestMind/MultiGameProject/tree/main/MultiGame%20Project/Assets/SnakeRush",
+    GitHub_Link: "https://github.com/GovindChoudhary844/SnakeRush",
     Game_Link:
       "https://www.youtube-nocookie.com/embed/FWqvyjuSJAY?autoplay=0&rel=0& modestbranding=1",
     description: (
