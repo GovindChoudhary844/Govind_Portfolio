@@ -341,7 +341,7 @@ const projectsAPI = [
       </>
     ),
 
-    imagecharacter: "Images/Projects/SnakeRush/SnakeRush.png",
+    imagecharacter: "Images/Projects/EnemyDodge/1.png",
     imagesDesktop: [
       "Images/Projects/EnemyDodge/1.png",
       "Images/Projects/EnemyDodge/2.png",
