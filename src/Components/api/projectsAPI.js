@@ -316,6 +316,39 @@ const projectsAPI = [
       "Images/Projects/SnakeRush/SnakeRush.png",
     ],
   },
+  {
+    id: 9,
+    name: "EnemyDodge",
+    subname: "Survival Game",
+    GitHub_Link: "https://github.com/GovindChoudhary844/EnemyDodge",
+    Game_Link: "https://govindchoudhary844.github.io/EnemyDodge_WebGL/",
+    description: (
+      <>
+        <div className="resp-h2">EnemyDodge – Survival Challenge</div>
+        <br />
+        • Enemies fall randomly from above with different speeds and damage —
+        every run feels unique.
+        <br />
+        • Move left and right to dodge danger, and use the dash ability to
+        escape deadly situations.
+        <br />
+        • Health is tracked in real-time — one mistake, and it’s Game Over.
+        <br />
+        • Explosions and random sound effects bring an arcade-style feel to
+        every impact.
+        <br />• The longer you survive, the faster enemies spawn — reflexes are
+        the only way to win.
+      </>
+    ),
+
+    imagecharacter: "Images/Projects/SnakeRush/SnakeRush.png",
+    imagesDesktop: [
+      "Images/Projects/EnemyDodge/1.png",
+      "Images/Projects/EnemyDodge/2.png",
+      "Images/Projects/EnemyDodge/3.png",
+      "Images/Projects/EnemyDodge/4.png",
+    ],
+  },
 ];
 
 export default projectsAPI;

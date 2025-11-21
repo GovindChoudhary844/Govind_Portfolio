@@ -49,12 +49,12 @@ function ProfileSidebar() {
                   >
                     <i className="fa-brands fa-github p-3 resp-h5"></i>
                   </a>
-                  <a
+                  {/* <a
                     href="https://www.instagram.com/govindchaudhary0001__/"
                     className="bg-instagram"
                   >
                     <i className="fa-brands fa-instagram p-3 resp-h5"></i>
-                  </a>
+                  </a> */}
                   <a
                     href="https://www.linkedin.com/in/govind-choudhary-/"
                     className="bg-linkedin"
