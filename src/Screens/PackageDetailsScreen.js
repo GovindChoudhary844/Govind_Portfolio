@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import packagesAPI from "../Components/api/packagesAPI";
 import Copyright from "../Components/copyright";
+import Tilt from "react-parallax-tilt";
 import "../App.css";
 
 const PackageDetailsScreen = () => {
@@ -15,7 +16,6 @@ const PackageDetailsScreen = () => {
 
   const pkg = packagesAPI.find((p) => p.id === parseInt(packageId));
 
-  // --- NEW: State for the Image Modal and Slider ---
   const [showModal, setShowModal] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
@@ -34,7 +34,6 @@ const PackageDetailsScreen = () => {
     );
   }
 
-  // --- Handlers for Slider ---
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
     setShowModal(true);
@@ -52,7 +51,6 @@ const PackageDetailsScreen = () => {
   };
 
   const customStyles = `
-    /* RESTORED ANIMATIONS */
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
@@ -66,13 +64,12 @@ const PackageDetailsScreen = () => {
       position: relative;
     }
 
-    /* Protects the sticky scrolling by moving hidden overflow to a background layer */
     .hero-bg-anim {
       position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       border-radius: 24px; overflow: hidden; z-index: 0; pointer-events: none;
     }
 
-    /* THE STICKY SCROLL WRAPPER */
+    /* THE FIX: This wrapper MUST be the parent for sticky to work */
     .package-img-sticky-wrapper {
       position: sticky;
       top: 120px;
@@ -86,13 +83,9 @@ const PackageDetailsScreen = () => {
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.5s ease;
-    }
-    .package-img-showcase:hover {
-      transform: scale(1.02);
+      cursor: pointer;
     }
 
-    /* RESTORED FEATURE TILE ANIMATIONS */
     .feature-tile {
       background: rgba(255, 255, 255, 0.03); 
       border: 1px solid rgba(255, 255, 255, 0.05); 
@@ -118,7 +111,6 @@ const PackageDetailsScreen = () => {
     .back-btn-glass:hover { background: rgba(255, 255, 255, 0.1); color: var(--fifth-color); transform: translateX(-5px); }
     .gradient-text { background: linear-gradient(to right, #ffffff, var(--fifth-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
 
-    /* Slider dots styles */
     .slick-prev:before, .slick-next:before { color: var(--fifth-color) !important; font-size: 24px; }
     .slick-dots li button:before { color: var(--third-color) !important; }
   `;
@@ -206,12 +198,26 @@ const PackageDetailsScreen = () => {
             </Col>
 
             <Col lg={6} className="order-1 order-lg-2">
+              {/* THE FIX: Sticky wrapper is now the parent of the Tilt component */}
               <div className="package-img-sticky-wrapper">
-                <img
-                  src={process.env.PUBLIC_URL + "/" + pkg.image}
-                  alt={pkg.name}
-                  className="package-img-showcase"
-                />
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={400}
+                  glareEnable={true}
+                  glareMaxOpacity={0.25}
+                  glareColor="#ffffff"
+                  glarePosition="all"
+                  glareBorderRadius="20px"
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/" + pkg.image}
+                    alt={pkg.name}
+                    className="package-img-showcase"
+                  />
+                </Tilt>
               </div>
             </Col>
           </Row>
@@ -261,7 +267,6 @@ const PackageDetailsScreen = () => {
           </Row>
         )}
 
-        {/* --- MODAL --- */}
         <Modal
           show={showModal}
           onHide={() => setShowModal(false)}

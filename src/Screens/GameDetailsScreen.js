@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import projectsAPI from "../Components/api/projectsAPI";
 import Copyright from "../Components/copyright";
+import Tilt from "react-parallax-tilt"; // <-- NEW: Import physics library
 import "../App.css";
 
 const GameDetailsScreen = () => {
@@ -114,7 +115,6 @@ const GameDetailsScreen = () => {
       position: relative;
     }
 
-    /* NEW: We moved the overflow hidden here so the sticky effect doesn't break! */
     .hero-bg-anim {
       position: absolute; top: 0; left: 0; right: 0; bottom: 0;
       border-radius: 24px; overflow: hidden; z-index: 0; pointer-events: none;
@@ -125,7 +125,6 @@ const GameDetailsScreen = () => {
       animation: pulseGlow 6s infinite alternate;
     }
 
-    /* THE MAGIC FIX: This makes the image track the mouse scroll */
     .game-img-sticky-wrapper {
       position: sticky;
       top: 120px; 
@@ -136,6 +135,7 @@ const GameDetailsScreen = () => {
       position: relative;
       animation: fadeInUp 1s ease 0.3s forwards, float 6s ease-in-out 1.3s infinite;
       opacity: 0; 
+      cursor: pointer;
     }
 
     .game-img-showcase {
@@ -190,10 +190,8 @@ const GameDetailsScreen = () => {
         </button>
 
         <div className="game-hero-glass p-4 p-md-5">
-          {/* Background overlay moved here to protect sticky scrolling */}
           <div className="hero-bg-anim"></div>
 
-          {/* REMOVED align-items-center so the right column gets tall enough to scroll through */}
           <Row style={{ position: "relative", zIndex: 1 }}>
             <Col lg={6} className="order-2 order-lg-1 mt-5 mt-lg-0 pe-lg-5">
               <Badge
@@ -246,19 +244,32 @@ const GameDetailsScreen = () => {
             </Col>
 
             <Col lg={6} className="order-1 order-lg-2">
-              {/* NEW STICKY WRAPPER */}
               <div className="game-img-sticky-wrapper">
-                <div className="game-img-wrapper">
-                  <img
-                    src={
-                      process.env.PUBLIC_URL +
-                      "/" +
-                      (project.imagecharacter || project.image)
-                    }
-                    alt={project.name}
-                    className="game-img-showcase"
-                  />
-                </div>
+                {/* PHYSICAL GAME CASE TILT APPLIED HERE */}
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  perspective={1000}
+                  scale={1.02}
+                  transitionSpeed={400}
+                  glareEnable={true}
+                  glareMaxOpacity={0.25}
+                  glareColor="#ffffff"
+                  glarePosition="all"
+                  glareBorderRadius="20px"
+                >
+                  <div className="game-img-wrapper">
+                    <img
+                      src={
+                        process.env.PUBLIC_URL +
+                        "/" +
+                        (project.imagecharacter || project.image)
+                      }
+                      alt={project.name}
+                      className="game-img-showcase"
+                    />
+                  </div>
+                </Tilt>
               </div>
             </Col>
           </Row>
