@@ -1,3 +1,13 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden !important;
+  background-color: var(--primary-color);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -255,4 +265,70 @@ hr {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem !important;
+}
+
+/* =========================================
+   CUSTOM 'GRIP' SCROLLBAR (LIKE SCREENSHOT)
+   ========================================= */
+
+/* 1. Overall width of the scrollbar area */
+::-webkit-scrollbar {
+  width: 14px;
+  background: transparent;
+}
+
+/* 2. The Track: We use a gradient to draw a very thin line exactly in the middle */
+::-webkit-scrollbar-track {
+  background: linear-gradient(to right,
+      transparent 45%,
+      rgba(255, 255, 255, 0.1) 45%,
+      rgba(255, 255, 255, 0.1) 55%,
+      transparent 55%);
+}
+
+/* 3. The Thumb: Dark pill with 3 horizontal grip lines */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  /* Dark base color to match the screenshot */
+
+  /* DRAW THE GRIP: 3 tiny white gradients acting as lines */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+
+  /* POSITION THE GRIP: Center them vertically, spaced 4px apart */
+  background-position:
+    center calc(50% - 4px),
+    center,
+    center calc(50% + 4px);
+
+  /* SIZE THE GRIP: Make them 6px wide and 1.5px tall */
+  background-size: 6px 1.5px;
+  background-repeat: no-repeat;
+
+  /* Create invisible padding so the thumb doesn't touch the sides */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
+  /* Optional: subtle drop shadow to make it pop off the thin line */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. Hover State: Glows with your theme's neon accent color */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--Fourth-color, #1e293b);
+
+  /* Change the grip lines to your neon theme color on hover */
+  background-image:
+    linear-gradient(var(--fifth-color, #00d2d2), var(--fifth-color, #00d2d2)),
+    linear-gradient(var(--fifth-color, #00d2d2), var(--fifth-color, #00d2d2)),
+    linear-gradient(var(--fifth-color, #00d2d2), var(--fifth-color, #00d2d2));
+}
+
+/* Firefox Fallback (Firefox cannot draw the grip lines, so we just give it the dark pill) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2a transparent;
 }

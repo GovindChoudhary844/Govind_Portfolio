@@ -66,21 +66,27 @@ function ProfileSidebar() {
           </div>
         </div>
 
+        {/* Social Buttons */}
         <div className="d-flex justify-content-center gap-3 mb-4">
           <a
             href="https://github.com/GovindChoudhary844"
             className="social-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="bi bi-github"></i>
           </a>
           <a
             href="https://www.linkedin.com/in/govind-choudhary-/"
             className="social-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="bi bi-linkedin"></i>
           </a>
         </div>
 
+        {/* Contact Info Box */}
         <div
           className="contact-box p-3 rounded-4"
           style={{
@@ -91,21 +97,21 @@ function ProfileSidebar() {
           {contactItems.map((item, idx) => (
             <div
               key={idx}
-              className={`d-flex align-items-center ${idx !== 2 ? "mb-3" : ""}`}
+              className={`d-flex align-items-center ${idx !== 2 ? "mb-4" : ""}`}
             >
-              <div className="icon-tile me-3">
+              {/* Added flex-shrink-0 so the icon never gets squished */}
+              <div className="icon-tile me-3 flex-shrink-0">
                 <i className={`bi ${item.icon}`}></i>
               </div>
-              <div className="overflow-hidden">
-                <small
-                  className="text-muted d-block"
-                  style={{ fontSize: "10px", textTransform: "uppercase" }}
-                >
+
+              {/* Added flex-column and justify-content-center for perfect vertical alignment */}
+              <div className="d-flex flex-column justify-content-center overflow-hidden w-100">
+                <span className="text-muted contact-label d-block text-uppercase fw-semibold mb-1">
                   {item.label}
-                </small>
+                </span>
                 <a
                   href={item.href}
-                  className="text-decoration-none resp-text-small"
+                  className="text-decoration-none contact-value mb-0"
                   style={{ color: "var(--third-color)" }}
                 >
                   {item.value}

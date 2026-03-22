@@ -1,0 +1,66 @@
+/* src/Components/CustomCursor.css */
+
+/* Hide the boring default cursor globally on desktop! */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* We define a dedicated cursor color here. 
+  This Fiery Orange matches your logo and perfectly contrasts the cyan theme! 
+*/
+:root {
+  --cursor-color: #ff5e00;
+}
+
+/* The Exact Pointer (Instantly follows the mouse) */
+.cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  /* Gave it a bright white core so it never gets lost */
+  background-color: #ffffff;
+  border: 2px solid var(--cursor-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--cursor-color);
+}
+
+/* The Trailing Ring (Follows with a slight delay) */
+.cursor-ring {
+  position: fixed;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--cursor-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+
+  transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease, background-color 0.3s ease;
+}
+
+/* Interaction: Clicking (Like a gun firing) */
+.cursor-ring.clicking {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: -10px;
+  background-color: rgba(255, 94, 0, 0.4);
+}
+
+/* Interaction: Hovering over links/buttons */
+.cursor-ring.hovering {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -25px;
+  background-color: rgba(255, 94, 0, 0.1);
+  border-color: rgba(255, 94, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+}

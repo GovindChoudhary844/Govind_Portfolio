@@ -1,3 +1,5 @@
+/* ProfileSidebar.css */
+
 .bg-green {
   border: 1px solid #088F8F;
   display: block;
@@ -15,100 +17,11 @@
   border-radius: 50px;
 }
 
-.profile-image-span {
-  display: flex;
-  width: 50%;
-  aspect-ratio: 1/1;
-  align-items: center;
-  justify-content: center;
-  margin-left: 25%;
-  margin-top: -20%;
-}
-
-.bg-github {
-  background-color: rgb(220, 220, 220);
-  border-radius: 15px;
-  transition: 0.5s;
-
-}
-
-.bg-github:hover {
-  background-color: #131418;
-  border-radius: 15px;
-}
-
-.bg-github i {
-  color: #131418;
-  transition: transform 0.2s ease-in-out;
-}
-
-.bg-github i:hover {
-  transform: scale(1.1);
-  color: #fff;
-}
-
-.bg-instagram {
-  background-color: rgb(220, 220, 220);
-  border-radius: 15px;
-  transition: 0.5s;
-}
-
-.bg-instagram:hover {
-  background-color: #d816f1;
-  border-radius: 15px;
-}
-
-.bg-instagram i {
-  color: #ec75fc;
-  transition: transform 0.2s ease-in-out;
-}
-
-.bg-instagram i:hover {
-  transform: scale(1.1);
-  color: #fff;
-}
-
-.bg-linkedin {
-  background-color: rgb(220, 220, 220);
-  border-radius: 15px;
-  transition: 0.5s;
-}
-
-.bg-linkedin:hover {
-  background-color: #0A66C2;
-  border-radius: 15px;
-}
-
-.bg-linkedin i {
-  color: #0A66C2;
-  transition: transform 0.5s ease-in-out;
-}
-
-.bg-linkedin i:hover {
-  transform: scale(1.1);
-  color: #fff;
-}
-
-.icon {
-  transition: transform 0.5s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.icon i:hover {
-  transform: scale(1.1);
-}
-
-.button-desc {
-  background-color: white;
-  color: black;
-  border: 1px solid #088F8F;
-}
-
-.button-desc:hover {
-  background-color: #088F8F;
-  color: white;
+.profile-name {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @keyframes float {
@@ -125,71 +38,17 @@
   }
 }
 
-/* .sticky-profile {
-} */
-
 .sticky-profile {
   animation: float 6s ease-in-out infinite;
   position: -webkit-sticky;
   position: sticky;
-  top: 60px;
+  top: 100px;
+  margin-top: 50px;
 }
 
-@media (max-width: 575.98px) {
-  .profile-image {
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
-
-  .profile-feild {
-    width: 80% !important;
-  }
-}
-
-.profile-name {
-  font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-style: normal;
-}
-
-/* Styles for screens between 576px and 767.98px (small devices) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .profile-image {
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
-
-  .profile-feild {
-    width: 80% !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .profile-image {
-    margin-top: 40px;
-    margin-bottom: 10px;
-  }
-
-  .profile-feild {
-    width: 30% !important;
-  }
-}
-
-/* ProfileSidebar.css */
-.icon-tile {
-  background: var(--secondary-color);
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  color: var(--fifth-color);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* =========================================
+   SOCIAL BUTTONS
+   ========================================= */
 .social-btn {
   width: 45px;
   height: 45px;
@@ -200,18 +59,80 @@
   background: var(--secondary-color);
   color: var(--third-color);
   font-size: 1.2rem;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-btn:hover {
   background: var(--fifth-color);
   color: white;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 210, 210, 0.3);
 }
 
-.sticky-profile {
-  position: sticky;
-  top: 100px;
-  margin-top: 50px;
+/* =========================================
+   CONTACT BOX (RESPONSIVE FIXES)
+   ========================================= */
+.icon-tile {
+  background: var(--secondary-color);
+  width: 40px;
+  /* Made slightly larger for better touch targets */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--fifth-color);
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Perfect responsive sizes for mobile readability */
+.contact-label {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.contact-value {
+  /* Slightly reduced the max size (0.85rem) so the 28-character email fits perfectly */
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  font-weight: 500;
+  line-height: 1.2;
+
+  /* THE FIX: Forces the text to stay on one single line */
+  white-space: nowrap;
+  display: block;
+
+  /* If the screen gets ridiculously tiny, it will safely add "..." instead of breaking the box */
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  transition: color 0.3s ease;
+}
+
+.contact-value:hover {
+  color: var(--fifth-color) !important;
+}
+
+/* Media Queries */
+@media (max-width: 575.98px) {
+  .profile-image {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .profile-image {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .profile-image {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
 }

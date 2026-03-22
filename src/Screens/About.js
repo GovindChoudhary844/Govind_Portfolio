@@ -6,14 +6,70 @@ import MarqueImage from "../Components/marqueImage";
 import "../App.css";
 
 const About = () => {
+  // UPGRADED DATA: Now includes descriptions and "RPG Levels" for the tooltips
+  // UPGRADED DATA: Expanded Tech Tree with advanced Game Dev mechanics
   const skills = [
-    "Unity",
-    "C#",
-    "JavaScript",
-    "Python",
-    "Photoshop",
-    "ChatGPT",
-    "GitHub",
+    {
+      name: "Unity 3D/2D",
+      desc: "Core Engine, Physics & Render Pipelines",
+      level: "Lv. 8",
+    },
+    {
+      name: "C# Scripting",
+      desc: "Gameplay Mechanics & Core Architectures",
+      level: "Lv. 8",
+    },
+    {
+      name: "Enemy AI",
+      desc: "Intelligent Behaviors & State Machines",
+      level: "Lv. 7",
+    },
+    {
+      name: "Multiplayer / Netcode",
+      desc: "Real-time Sync & Action Game Architecture",
+      level: "Lv. 6",
+    },
+    {
+      name: "Level Design",
+      desc: "Procedural Map Generation & Layouts",
+      level: "Lv. 7",
+    },
+    {
+      name: "Editor Scripting",
+      desc: "Custom Unity Packages & Workflow Tools",
+      level: "Lv. 6",
+    },
+    {
+      name: "Sound Design",
+      desc: "Audio Mixing & Interactive SFX Implementation",
+      level: "Lv. 6",
+    },
+    {
+      name: "Game UI/UX",
+      desc: "Asset Design & Player Feedback Systems",
+      level: "Lv. 7",
+    },
+    {
+      name: "Photoshop",
+      desc: "2D Assets, UI Elements & Texture Editing",
+      level: "Lv. 7",
+    },
+    {
+      name: "JavaScript",
+      desc: "Web Integration & Portfolio Development",
+      level: "Lv. 6",
+    },
+    { name: "Python", desc: "Backend Logic & Tool Automation", level: "Lv. 5" },
+    {
+      name: "AI Prompting",
+      desc: "AI Workflow & Code Optimization",
+      level: "Lv. 9",
+    },
+    {
+      name: "GitHub",
+      desc: "Version Control & Source Management",
+      level: "Lv. 8",
+    },
   ];
 
   const customStyles = `
@@ -32,7 +88,6 @@ const About = () => {
       animation: fadeInDown 0.8s ease forwards;
     }
 
-    /* Matching Resume.js section styles */
     .about-section-anim {
       background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(15px);
@@ -57,38 +112,104 @@ const About = () => {
       font-weight: 700;
     }
 
-    .skill-tag-anim {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--third-color);
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      opacity: 0;
-      animation: spawnPulse 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      transition: all 0.3s ease;
-    }
-
-    .skill-tag-anim:hover {
-      background: rgba(0, 210, 210, 0.1);
-      border-color: var(--fifth-color);
-      transform: translateY(-5px) !important;
-      box-shadow: 0 10px 20px rgba(0, 210, 210, 0.2);
-      color: var(--fifth-color);
-    }
-
-    .marquee-spawn-anim {
-      opacity: 0;
-      animation: spawnPulse 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
-
     .gradient-title {
       background: linear-gradient(to bottom right, #ffffff, var(--fifth-color));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
       letter-spacing: -1px;
+    }
+
+    /* =========================================
+       RPG TECH TREE NODES
+       ========================================= */
+    .tech-node-wrapper {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    .skill-node {
+      background: rgba(10, 15, 25, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+      color: var(--third-color);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      opacity: 0;
+      animation: spawnPulse 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .tech-node-wrapper:hover .skill-node {
+      background: rgba(0, 210, 210, 0.1);
+      border-color: rgba(0, 210, 210, 0.4);
+      border-bottom: 3px solid var(--fifth-color);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(0, 210, 210, 0.2), inset 0 0 15px rgba(0, 210, 210, 0.1);
+      color: var(--fifth-color);
+    }
+
+    /* The Glass Tooltip */
+    .tech-tooltip {
+      position: absolute;
+      bottom: 130%;
+      width: max-content;
+      max-width: 200px;
+      background: rgba(20, 24, 34, 0.95);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 210, 210, 0.4);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: #ffffff;
+      font-size: 0.85rem;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* The level badge inside the tooltip */
+    .tooltip-level {
+      display: inline-block;
+      background: var(--fifth-color);
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    /* The glowing arrow pointing down */
+    .tech-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: rgba(0, 210, 210, 0.4) transparent transparent transparent;
+    }
+
+    .tech-node-wrapper:hover .tech-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .marquee-spawn-anim {
+      opacity: 0;
+      animation: spawnPulse 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
   `;
 
@@ -135,7 +256,7 @@ const About = () => {
             </Col>
           </Row>
 
-          {/* Skills Section */}
+          {/* Upgraded Skills Section */}
           <Row className="justify-content-center">
             <Col>
               <div
@@ -143,17 +264,25 @@ const About = () => {
                 style={{ animationDelay: "0.4s" }}
               >
                 <h2 className="resp-h2 text-center">
-                  <i className="bi bi-code-slash me-2"></i>Skills
+                  <i className="bi bi-diagram-3 me-2"></i>Tech Tree
                 </h2>
                 <hr style={{ opacity: 0.1 }} />
-                <div className="d-flex flex-wrap gap-3 justify-content-center mt-4">
+                <div className="d-flex flex-wrap gap-4 justify-content-center mt-4 pb-2">
                   {skills.map((skill, index) => (
-                    <div
-                      key={index}
-                      className="skill-tag-anim"
-                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                    >
-                      {skill}
+                    <div key={index} className="tech-node-wrapper">
+                      {/* The Hover Tooltip */}
+                      <div className="tech-tooltip">
+                        <div className="tooltip-level">{skill.level}</div>
+                        <div style={{ lineHeight: "1.3" }}>{skill.desc}</div>
+                      </div>
+
+                      {/* The Visual Node */}
+                      <div
+                        className="skill-node"
+                        style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                      >
+                        {skill.name}
+                      </div>
                     </div>
                   ))}
                 </div>

@@ -11,6 +11,9 @@ import Resume from "./Screens/Resume";
 import Works from "./Screens/Works";
 import Contact from "./Screens/Contact";
 import Packages from "./Screens/Packages";
+import CustomScrollbar from "./Components/CustomScrollbar";
+import CustomCursor from "./Components/CustomCursor";
+import BackgroundParticles from "./Components/BackgroundParticles";
 
 import GameDetailsScreen from "../src/Screens/GameDetailsScreen";
 import PackageDetailsScreen from "./Screens/PackageDetailsScreen";
@@ -39,66 +42,72 @@ function App() {
   return (
     <>
       <Router>
-        <Container
-          fluid
-          className={`background-image-container ${
-            darkMode ? "dark-mode" : ""
-          }`}
-        >
-          <Row>
-            {/* Topmenu no longer needs props, it will pull from Context itself! */}
-            <Topmenu />
-          </Row>
-          <ScrollToTop />
-          <ScrollToTopButton />
-          <Row className="content pb-5">
-            <Col
-              sm={12}
-              md={12}
-              lg={4}
-              xl={4}
-              xxl={3}
-              className="d-none d-sm-block"
-            >
-              <ProfileSidebar />
-            </Col>
-            {/* ====================== */}
-            <Col
-              sm={12}
-              md={12}
-              lg={8}
-              xl={8}
-              xxl={8}
-              className="my-5 my-md-0 my-lg-0 pages rounded-3"
-              style={{ backgroundColor: "var(--primary-color)" }}
-            >
-              <Routes>
-                {/* Conditionally render the default route based on screen size */}
-                <Route
-                  path="/"
-                  element={isMobile ? <ProfileSidebar /> : <About />}
-                />
-                <Route path="/about" element={<About />} />
-                <Route path="/resume" element={<Resume />} />
-                <Route path="/works" element={<Works />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/packages" element={<Packages />} />
-                <Route
-                  path="/packages/:packageId"
-                  element={<PackageDetailsScreen />}
-                />
-                <Route
-                  path="/projects/:projectId"
-                  element={<GameDetailsScreen />}
-                />
-              </Routes>
-            </Col>
-            {/* ====================== */}
-            <Col sm={12} md={12} xl={1}>
-              <Navbar />
-            </Col>
-          </Row>
-        </Container>
+        <CustomCursor />
+        {/* ENTIRE APP IS NOW WRAPPED IN THE CUSTOM SCROLLBAR */}
+        <CustomScrollbar>
+          <Container
+            fluid
+            className={`background-image-container ${
+              darkMode ? "dark-mode" : ""
+            }`}
+          >
+            <Row>
+              {/* Topmenu no longer needs props, it will pull from Context itself! */}
+              <Topmenu />
+            </Row>
+
+            <ScrollToTop />
+            <ScrollToTopButton />
+
+            <Row className="content pb-5">
+              <Col
+                sm={12}
+                md={12}
+                lg={4}
+                xl={4}
+                xxl={3}
+                className="d-none d-sm-block"
+              >
+                <ProfileSidebar />
+              </Col>
+              {/* ====================== */}
+              <Col
+                sm={12}
+                md={12}
+                lg={8}
+                xl={8}
+                xxl={8}
+                className="my-5 my-md-0 my-lg-0 pages rounded-3"
+                style={{ backgroundColor: "var(--primary-color)" }}
+              >
+                <Routes>
+                  {/* Conditionally render the default route based on screen size */}
+                  <Route
+                    path="/"
+                    element={isMobile ? <ProfileSidebar /> : <About />}
+                  />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/resume" element={<Resume />} />
+                  <Route path="/works" element={<Works />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/packages" element={<Packages />} />
+                  <Route
+                    path="/packages/:packageId"
+                    element={<PackageDetailsScreen />}
+                  />
+                  <Route
+                    path="/projects/:projectId"
+                    element={<GameDetailsScreen />}
+                  />
+                </Routes>
+              </Col>
+              {/* ====================== */}
+              <Col sm={12} md={12} xl={1}>
+                <Navbar />
+              </Col>
+            </Row>
+          </Container>
+        </CustomScrollbar>
       </Router>
     </>
   );

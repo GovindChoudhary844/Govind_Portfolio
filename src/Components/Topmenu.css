@@ -1,9 +1,77 @@
 /* Topmenu.css */
+
+/* Ensures the menu container sits perfectly at the top but PUSHES content down instead of overlapping */
+.fixed-top-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* =========================================
+   PREMIUM FLOATING NAVBAR PILL
+   ========================================= */
+.glass-navbar-pill {
+  height: 90px !important;
+  margin-top: 25px !important;
+  background: rgba(20, 24, 34, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  z-index: 1002;
+  position: relative;
+}
+
+/* Enhancing your Logo */
 .logo-name {
   font-family: cursive;
-  font-size: clamp(1.5625rem, 1.0417rem + 1.6667vw, 2.5rem);
-  font-weight: 700;
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.logo-image {
+  max-width: 50px;
+  width: 100%;
+  height: auto;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: drop-shadow(0 0 5px rgba(230, 100, 30, 0.4));
+}
+
+/* The Hover Interaction for Logo */
+.logo-link-hover:hover .logo-name {
+  color: var(--fifth-color);
+  text-shadow: 0 0 15px rgba(0, 210, 210, 0.5);
+}
+
+.logo-link-hover:hover .logo-image {
+  transform: rotate(180deg) scale(1.1);
+  filter: drop-shadow(0 0 15px rgba(0, 210, 210, 0.6));
+}
+
+/* The Mobile Toggle Button */
+.top-menu-button {
+  border-radius: 16px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: none;
   color: var(--third-color);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.top-menu-button:hover,
+.top-menu-button.active {
+  background: rgba(0, 210, 210, 0.1);
+  color: var(--fifth-color);
+  border-color: rgba(0, 210, 210, 0.3);
+  transform: scale(1.05);
 }
 
 .top-mode-button {
@@ -15,92 +83,161 @@
   transition: all 0.5s;
 }
 
-.top-menu-button {
-  border-radius: 20%;
-  padding: 10px;
-  background: var(--Fourth-color);
-  display: none;
-  color: var(--third-color);
+/* =========================================
+   COMMAND CENTER DROPDOWN
+   ========================================= */
+
+/* The Background Dimmer */
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
 }
 
-.logo-image {
-  max-width: 80px;
-  width: 100%;
-  height: auto;
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.6);
+  z-index: 1000;
+  animation: fadeInBackdrop 0.4s ease forwards;
 }
 
+/* The Floating Menu Wrapper */
+.floating-menu-wrapper {
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 1001;
+}
 
+/* The Glass Menu Container */
+@keyframes menuSpawn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.glassmorphic-menu {
+  background: var(--Fourth-color) !important;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: menuSpawn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Neon Glow behind the links */
+.menu-glow-orb {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 210, 210, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Staggered Link Animations */
+@keyframes linkSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .top-navlink-button {
-  color: var(--third-color)
+  color: var(--third-color);
+  font-size: 1.15rem;
+  padding: 16px 20px !important;
+  margin-bottom: 8px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: linkSlideIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .top-navlink-button:hover {
-  color: #088F8F;
-  background-color: #f3f3f3;
-  border-radius: 10px;
+  color: var(--fifth-color);
+  background: rgba(0, 210, 210, 0.08);
+  border-color: rgba(0, 210, 210, 0.2);
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .top-navlink-button-icon {
-  margin-right: 15px;
-  font-size: 25px;
+  margin-right: 18px;
+  font-size: 1.4rem;
+  color: var(--fifth-color);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
 }
 
-.menu-container {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.5s, visibility 0.5s;
-  position: absolute;
-  z-index: 1000;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+.top-navlink-button:hover .top-navlink-button-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
-.top-navbar-col {
-  transition: background-color 0.5s;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-
+/* Media Queries */
 @media (max-width: 767.98px) {
-  .top-navbar {
-    height: 140px !important;
+  .glass-navbar-pill {
+    height: 80px !important;
+    margin-top: 15px !important;
+    border-radius: 20px !important;
+    padding: 0 15px !important;
   }
 
   .logo-image {
-    max-width: 80px;
-    width: 50%;
-    height: auto;
+    max-width: 40px;
   }
 
+  .floating-menu-wrapper {
+    top: 110px;
+  }
 }
 
 @media (max-width: 1399px) {
-
-  .top-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 30px;
-    width: 100%;
-    z-index: 1000;
-  }
-
   .top-menu-button {
     display: block;
-    cursor: pointer;
   }
-
 }
 
 @media (min-width: 1400px) {
-  .top-navbar-col {
-    height: 100px !important;
-    margin-top: 20px;
+  .top-menu-button {
+    display: none;
   }
-
 }
