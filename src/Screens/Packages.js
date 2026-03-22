@@ -1,12 +1,12 @@
-// src/Screens/Works.js
+// src/Screens/Packages.js (or PackagesScreen.js depending on your file name)
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import ProjectsCard from "../Components/ProjectsCard";
+import PackageCard from "../Components/PackageCard"; // Ensure this path matches your folder structure
 import Copyright from "../Components/copyright";
 import "../App.css";
-import projectsAPI from "../Components/api/projectsAPI";
+import packagesAPI from "../Components/api/packagesAPI";
 
-const Works = () => {
+const Packages = () => {
   const customStyles = `
     /* The "Pulse Spawn" Animation */
     @keyframes spawnPulse {
@@ -34,12 +34,11 @@ const Works = () => {
       animation: spawnPulse 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
 
-    .works-header-anim {
+    .packages-header-anim {
       opacity: 0;
       animation: fadeInDown 0.8s ease forwards;
     }
     
-    /* Make sure the page title looks premium to match the other pages */
     .gradient-title {
       background: linear-gradient(to bottom right, #ffffff, var(--fifth-color));
       -webkit-background-clip: text;
@@ -57,25 +56,25 @@ const Works = () => {
         style={{ color: "var(--third-color)" }}
       >
         <Container fluid>
-          <div className="text-center mb-5 works-header-anim">
-            <h1 className="display-4 gradient-title">My Games Library</h1>
+          <div className="text-center mb-5 packages-header-anim">
+            <h1 className="display-4 gradient-title">Unity Packages</h1>
             <p style={{ color: "var(--sixth-color)", fontSize: "1.1rem" }}>
-              A collection of games and prototypes I've built.
+              Custom editor tools and assets to accelerate game development.
             </p>
           </div>
 
           <Row className="mt-3 mt-md-4">
-            {projectsAPI.map((project, index) => (
+            {packagesAPI.map((pkg, index) => (
               <Col
-                key={project.id}
+                key={pkg.id}
                 sm={12}
                 md={6}
                 lg={4}
                 className="p-3 card-spawn-wrapper"
-                /* THE MAGIC: Multiplies the index by 0.15s so they load in a wave */
+                /* Staggered delay: each card waits slightly longer than the previous one */
                 style={{ animationDelay: `${0.1 + index * 0.15}s` }}
               >
-                <ProjectsCard project={project} />
+                <PackageCard pkg={pkg} />
               </Col>
             ))}
           </Row>
@@ -93,4 +92,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default Packages;

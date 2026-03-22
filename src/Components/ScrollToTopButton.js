@@ -57,7 +57,7 @@ const ScrollToTopButton = () => {
         className={isVisible ? "scroll-to-top-btn show" : "scroll-to-top-btn"}
         onClick={scrollToTop}
       >
-        <i className="fa-regular fa-angle-up"></i>
+        <i className="bi bi-chevron-up"></i>
       </div>
     </>
   );

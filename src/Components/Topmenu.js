@@ -122,12 +122,12 @@ function Topmenu() {
             </Col>
           </Row>
         </Container>
-        <div className="collapse" id="navbarToggleExternalContent">
+        {/* <div className="collapse" id="navbarToggleExternalContent">
           <div className="bg-dark p-4">
             <h5 className="text-white h4">Collapsed content</h5>
             <span className="text-muted">Toggleable via the navbar brand.</span>
           </div>
-        </div>
+        </div> */}
         {/* menu Item */}
         {menuVisible && (
           <Container
@@ -158,10 +158,11 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="fa-light fa-home top-navlink-button-icon"></i>
-                      </span>
+                        <i className="bi bi-house top-navlink-button-icon"></i>
+                      </span>{" "}
                       Home
                     </Nav.Link>
+
                     <Nav.Link
                       as={Link}
                       to="/about"
@@ -169,10 +170,11 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="fa-light fa-user top-navlink-button-icon"></i>
-                      </span>
+                        <i className="bi bi-person top-navlink-button-icon"></i>
+                      </span>{" "}
                       About
                     </Nav.Link>
+
                     <Nav.Link
                       as={Link}
                       to="/resume"
@@ -180,10 +182,11 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="fa-light fa-file-lines top-navlink-button-icon"></i>
-                      </span>
+                        <i className="bi bi-file-earmark-text top-navlink-button-icon"></i>
+                      </span>{" "}
                       Resume
                     </Nav.Link>
+
                     <Nav.Link
                       as={Link}
                       to="/works"
@@ -191,10 +194,23 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="fa-light fa-gamepad top-navlink-button-icon"></i>
-                      </span>
+                        <i className="bi bi-controller top-navlink-button-icon"></i>
+                      </span>{" "}
                       My Games
                     </Nav.Link>
+
+                    <Nav.Link
+                      as={Link}
+                      to="/packages"
+                      className="top-navlink-button resp-h5"
+                      onClick={closeMenu}
+                    >
+                      <span>
+                        <i className="bi bi-box-seam top-navlink-button-icon"></i>
+                      </span>{" "}
+                      Packages
+                    </Nav.Link>
+
                     <Nav.Link
                       as={Link}
                       to="/contact"
@@ -202,8 +218,8 @@ function Topmenu() {
                       onClick={closeMenu}
                     >
                       <span>
-                        <i className="size-22 fa-light fa-address-book top-navlink-button-icon"></i>
-                      </span>
+                        <i className="bi bi-journal-richtext top-navlink-button-icon"></i>
+                      </span>{" "}
                       Contact
                     </Nav.Link>
                   </Nav>

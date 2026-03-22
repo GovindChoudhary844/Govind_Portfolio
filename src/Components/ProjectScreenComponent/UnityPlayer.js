@@ -1,3 +1,4 @@
+// UnityPlayer.js
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Row, Col, Modal, Button } from "react-bootstrap";
@@ -7,10 +8,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import projectsAPI from "../api/projectsAPI";
 
-function ProjectScreen() {
+function UnityPlayer() {
   const { projectId } = useParams();
   const project = projectsAPI.find(
-    (project) => project.id === parseInt(projectId)
+    (project) => project.id === parseInt(projectId),
   );
 
   const [showModal, setShowModal] = useState(false);
@@ -90,13 +91,14 @@ function ProjectScreen() {
       </style>
       <Row>
         <Col>
-          <h1 className="resp-h2">{project.name}</h1>
-          {project.GitHub_Link && (
+          <h1 className="resp-h2">{project?.name}</h1>
+          {project?.GitHub_Link && (
             <p className="resp-text">
               GitHub Link:{" "}
               <a
                 href={project.GitHub_Link}
                 target="_blank"
+                rel="noreferrer"
                 className="text-decoration-none"
               >
                 {project.GitHub_Link}
@@ -127,7 +129,7 @@ function ProjectScreen() {
           >
             <iframe
               ref={iframeRef}
-              src={project.Game_Link}
+              src={project?.Game_Link}
               title="Unity Game"
               width="100%"
               height="100%"
@@ -138,7 +140,7 @@ function ProjectScreen() {
                 border: "none",
               }}
               allow="fullscreen"
-              allowFullScreen="true"
+              allowFullScreen
             />
           </div>
           {/* Fullscreen Button for Mobile */}
@@ -147,14 +149,49 @@ function ProjectScreen() {
             className="mt-2 w-10 d-block d-lg-none ms-auto"
             onClick={handleFullscreen}
           >
-            <i className="fa fa-arrows-alt" aria-hidden="true"></i>
+            <i className="bi bi-arrows-fullscreen" aria-hidden="true"></i>
           </Button>
         </Col>
 
-        <Col md={12} className="d-flex align-items-center mt-3">
-          <p className="resp-text mx-xl-5">
-            {project ? project.description : "Project Not Found"}
-          </p>
+        <Col md={12} className="mt-4">
+          <div className="resp-text mx-xl-5">
+            {project && project.description ? (
+              <ol className="list-unstyled">
+                {project.description.map((point, i) => (
+                  <li key={i} className="mb-2 d-flex">
+                    {/* 👇 Updated color here 👇 */}
+                    <span
+                      style={{
+                        color: "var(--third-color)",
+                        marginRight: "8px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {i + 1}.
+                    </span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p>Project Not Found</p>
+            )}
+            {/* Render Download Link if the project has one (like SnakeRush) */}
+            {project?.Download_Link && (
+              <div className="mt-4 resp-h6">
+                <strong>Download Link: </strong>
+                <a
+                  href={project.Download_Link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-decoration-none"
+                  style={{ color: "var(--fifth-color)" }}
+                >
+                  Click Here to Download
+                </a>
+              </div>
+            )}
+          </div>
         </Col>
       </Row>
       <Row className="mt-5">
@@ -166,13 +203,11 @@ function ProjectScreen() {
                 <div key={index} className="p-1">
                   <img
                     src={
-                      project
-                        ? process.env.PUBLIC_URL +
-                          "/" +
-                          project.imagesDesktop[index]
-                        : ""
+                      process.env.PUBLIC_URL +
+                      "/" +
+                      project.imagesDesktop[index]
                     }
-                    alt=""
+                    alt={`${project.name} screenshot ${index + 1}`}
                     className={`img-fluid ${ImageLoaded ? "" : "blur"}`}
                     onClick={() => handleImageClick(index)}
                     style={{ cursor: "pointer" }}
@@ -189,12 +224,12 @@ function ProjectScreen() {
         <Modal.Body>
           <div className=" d-flex justify-content-between align-items-center">
             <i
-              className="fa-solid fa-circle-chevron-left position-absolute"
+              className="bi bi-chevron-left position-absolute"
               onClick={() =>
                 setSelectedImageIndex((prevIndex) =>
                   prevIndex === 0
                     ? project.imagesDesktop.length - 1
-                    : prevIndex - 1
+                    : prevIndex - 1,
                 )
               }
               style={{ cursor: "pointer" }}
@@ -207,18 +242,18 @@ function ProjectScreen() {
                     project.imagesDesktop[selectedImageIndex]
                   : ""
               }
-              alt=""
+              alt={`${project?.name} expanded`}
               className="img-fluid"
               style={{ maxHeight: "70vh", objectFit: "contain" }}
               loading="lazy"
             />
             <i
-              className="fa-solid fa-circle-chevron-right"
+              className="bi bi-chevron-right"
               onClick={() =>
                 setSelectedImageIndex((prevIndex) =>
                   prevIndex === project.imagesDesktop.length - 1
                     ? 0
-                    : prevIndex + 1
+                    : prevIndex + 1,
                 )
               }
               style={{ cursor: "pointer", marginLeft: "-10px" }}
@@ -230,4 +265,4 @@ function ProjectScreen() {
   );
 }
 
-export default ProjectScreen;
+export default UnityPlayer;

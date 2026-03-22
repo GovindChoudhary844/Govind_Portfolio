@@ -17,54 +17,6 @@ function ProjectsCard({ project }) {
 
   return (
     <>
-      <style>
-        {`
-          .bg-green {
-            border: 1px solid #088F8F;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-          }
-          
-          .bg-green:hover {
-            background-color: #017d7d;
-            border: 1px solid #017d7d;
-          }
-
-          .image-container {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-          }
-
-          .image-size {
-            transition: transform 0.5s ease, opacity 0.5s ease;
-            display: block;
-            width: 100%;
-            height: auto;
-          }
-
-          .image-container:hover .image-size {
-            transform: scale(1.1);
-            opacity: 0.5;
-          }
-
-          .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-          }
-
-          .image-container:hover .play-icon {
-            opacity: 1;
-          }
-        `}
-      </style>
       <Card
         style={{
           backgroundColor: "var(--Fourth-color)",
@@ -79,7 +31,7 @@ function ProjectsCard({ project }) {
             loading="lazy"
             onLoad={handleImageLoad}
           />
-          <i className="fa fa-play-circle play-icon" aria-hidden="true"></i>
+          <i className="bi bi-play-circle play-icon" aria-hidden="true"></i>
         </div>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title
@@ -102,13 +54,17 @@ function ProjectsCard({ project }) {
           >
             {project.subname}
           </Card.Text>
-          <Button
-            onClick={redirectToProjectDetails}
-            variant="primary"
-            className="resp-text bg-green"
-          >
-            Details
-          </Button>
+
+          {/* Centering Wrapper added here */}
+          <div className="d-flex justify-content-center mt-3">
+            <Button
+              onClick={redirectToProjectDetails}
+              variant="primary"
+              className="resp-text bg-green px-4"
+            >
+              Details
+            </Button>
+          </div>
         </Card.Body>
       </Card>
     </>

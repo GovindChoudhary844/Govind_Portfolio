@@ -1,175 +1,131 @@
 // ProfileSidebar.js
 import React from "react";
-import { Row, Col, Button, Card, ListGroup } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import "../App.css";
 import "./ProfileSidebar.css";
 
 function ProfileSidebar() {
+  const contactItems = [
+    {
+      icon: "bi-telephone",
+      label: "Phone",
+      value: "8595677844",
+      href: "tel:+918595677844",
+    },
+    {
+      icon: "bi-envelope",
+      label: "Email",
+      value: "govindchoudhary844@gmail.com",
+      href: "mailto:govindchoudhary844@gmail.com",
+    },
+    {
+      icon: "bi-geo-alt",
+      label: "Address",
+      value: "New Delhi, Delhi",
+      href: "#",
+    },
+  ];
+
   return (
-    <>
-      <div className="sticky-profile">
-        <Row>
-          <Col>
+    <div className="sticky-profile">
+      <div
+        className="rounded-4 p-4 shadow-lg"
+        style={{
+          backgroundColor: "var(--Fourth-color)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid rgba(255,255,255,0.1)",
+        }}
+      >
+        <div className="text-center">
+          <img
+            src={process.env.PUBLIC_URL + "/Images/photo_Org.jpg"}
+            alt="profile"
+            className="rounded-circle shadow"
+            style={{
+              width: "120px",
+              height: "120px",
+              objectFit: "cover",
+              marginTop: "-70px",
+              border: "4px solid var(--fifth-color)",
+            }}
+          />
+          <h3
+            className="mt-3 profile-name resp-h2"
+            style={{ color: "var(--third-color)" }}
+          >
+            Govind Choudhary
+          </h3>
+          <div
+            className="badge bg-secondary py-2 px-3 mb-4 rounded-pill"
+            style={{
+              backgroundColor: "rgba(255,255,255,0.1) !important",
+              color: "var(--third-color)",
+            }}
+          >
+            Unity Game Developer
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-center gap-3 mb-4">
+          <a
+            href="https://github.com/GovindChoudhary844"
+            className="social-btn"
+          >
+            <i className="bi bi-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/govind-choudhary-/"
+            className="social-btn"
+          >
+            <i className="bi bi-linkedin"></i>
+          </a>
+        </div>
+
+        <div
+          className="contact-box p-3 rounded-4"
+          style={{
+            background: "rgba(0,0,0,0.1)",
+            border: "1px solid rgba(255,255,255,0.05)",
+          }}
+        >
+          {contactItems.map((item, idx) => (
             <div
-              className="rounded-3 p-3 "
-              style={{ backgroundColor: "var(--primary-color)" }}
+              key={idx}
+              className={`d-flex align-items-center ${idx !== 2 ? "mb-3" : ""}`}
             >
-              <span className="profile-image-span">
-                <img
-                  src={process.env.PUBLIC_URL + "/Images/photo.jpg"}
-                  alt="profile"
-                  className="profile-image rounded-5"
-                />
-              </span>
-              <h3
-                className="text-center my-3 profile-name resp-h2"
-                style={{ color: "var(--third-color)" }}
-              >
-                Govind Choudhary
-              </h3>
-              <span className="d-flex justify-content-center align-items-center">
-                <p
-                  className="text-center d-flex justify-content-center align-items-center profile-feild my-3"
-                  style={{
-                    width: "100%",
-                    backgroundColor: "#DCDCDC",
-                    borderRadius: "10px",
-                    height: "35px",
-                  }}
+              <div className="icon-tile me-3">
+                <i className={`bi ${item.icon}`}></i>
+              </div>
+              <div className="overflow-hidden">
+                <small
+                  className="text-muted d-block"
+                  style={{ fontSize: "10px", textTransform: "uppercase" }}
                 >
-                  <strong className="resp-h6">Unity Game Developer</strong>
-                </p>
-              </span>
-
-              <Row className="social-icons d-flex my-3">
-                <Col className="d-flex justify-content-center gap-2">
-                  <a
-                    href="https://github.com/GovindChoudhary844"
-                    className="bg-github"
-                  >
-                    <i className="fa-brands fa-github p-3 resp-h5"></i>
-                  </a>
-                  {/* <a
-                    href="https://www.instagram.com/govindchaudhary0001__/"
-                    className="bg-instagram"
-                  >
-                    <i className="fa-brands fa-instagram p-3 resp-h5"></i>
-                  </a> */}
-                  <a
-                    href="https://www.linkedin.com/in/govind-choudhary-/"
-                    className="bg-linkedin"
-                  >
-                    <i className="fa-brands fa-linkedin-in p-3 resp-h5"></i>
-                  </a>
-                </Col>
-              </Row>
-              <Row className="my-3 mt-5 px-md-5 px-lg-0">
-                <Col>
-                  <Card className="rounded-2 bg-green">
-                    <ListGroup
-                      variant="flush"
-                      className="rounded-2 profile-sidebar-content"
-                    >
-                      <ListGroup.Item
-                        style={{
-                          backgroundColor: "var(--Fourth-color)",
-                          color: "var(--third-color)",
-                        }}
-                      >
-                        <Row>
-                          <Col xs={2} sm={2} md={2} className="icon">
-                            <Button className="button-desc">
-                              <i className="fa-solid fa-phone resp-h6"></i>
-                            </Button>
-                          </Col>
-                          <Col xs={10} sm={10} md={10}>
-                            <span className=" resp-text-small">Phone</span>
-                            <br />
-                            <span>
-                              <a
-                                className="resp-h6"
-                                href="tel:+91 8595677844"
-                                style={{ textDecoration: "none" }}
-                              >
-                                {" "}
-                                8595677844
-                              </a>
-                            </span>
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-
-                      <ListGroup.Item
-                        style={{
-                          backgroundColor: "var(--Fourth-color)",
-                          color: "var(--third-color)",
-                        }}
-                      >
-                        <Row>
-                          <Col xs={2} sm={2} md={2} className="icon">
-                            <Button className="button-desc">
-                              <i className="fa-solid fa-envelope resp-h6"></i>
-                            </Button>
-                          </Col>
-                          <Col xs={10} sm={10} md={10}>
-                            <span className=" resp-text-small">Email</span>
-                            <br />
-                            <span style={{ fontSize: "12px" }}>
-                              <a
-                                href="mailto:govindchoudhary844@gmail.com"
-                                className="resp-text-small"
-                                style={{
-                                  textDecoration: "none",
-                                }}
-                              >
-                                govindchoudhary844@gmail.com
-                              </a>
-                            </span>
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-
-                      <ListGroup.Item
-                        style={{
-                          backgroundColor: "var(--Fourth-color)",
-                          color: "var(--third-color)",
-                        }}
-                      >
-                        <Row>
-                          <Col xs={2} sm={2} md={2} className="icon">
-                            <Button className="button-desc">
-                              <i className="fa-solid fa-location-dot resp-h6"></i>
-                            </Button>
-                          </Col>
-                          <Col xs={10} sm={10} md={10}>
-                            <span className=" resp-text-small">Address</span>
-                            <br />
-                            <p className="resp-h6">New Delhi, Delhi</p>
-                          </Col>
-                        </Row>
-                      </ListGroup.Item>
-                    </ListGroup>
-                  </Card>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="d-flex justify-content-center align-items-center my-3 mb-5">
-                  <Button
-                    className="bg-green resp-text"
-                    href="https://drive.google.com/file/d/1z7B8J1NpCcYV72MQi2p-JbqhpozvMGZY/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                  >
-                    Download
-                  </Button>
-                </Col>
-              </Row>
+                  {item.label}
+                </small>
+                <a
+                  href={item.href}
+                  className="text-decoration-none resp-text-small"
+                  style={{ color: "var(--third-color)" }}
+                >
+                  {item.value}
+                </a>
+              </div>
             </div>
-          </Col>
-        </Row>
+          ))}
+        </div>
+
+        <div className="text-center mt-4">
+          <Button
+            className="bg-green w-100 py-2"
+            href="https://drive.google.com/file/d/1uCfqzu-GYL_MOqW9fRg57cgw8YMmYUd7/view?usp=sharing"
+            target="_blank"
+          >
+            <i className="bi bi-download me-2"></i> Download CV
+          </Button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

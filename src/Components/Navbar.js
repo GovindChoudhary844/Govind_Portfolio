@@ -1,102 +1,71 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
 const CustomNavbar = () => {
+  const location = useLocation();
+
   return (
     <>
       <style>
         {`
-        .navlink-button{
-          background-color: var(--Fourth-color);
-          color: var(--third-color);
-          border-radius: 10px;
-          text-align: center;
-          transition: 0.5s;
-          margin-bottom: 10px;
-          padding: 10px;
-          transition: transform 0.2s ease-in-out;
-        }
-        .navlink-button:hover{
-          background-color: var(--secondary-color);
-          transform: scale(1.1);
-          color: var(--third-color);
-        }
-        
-        .navlink-button:focus {
-          background-color: var(--secondary-color);
-          transform: scale(1.1);
-          color: #088F8F;
+        .sticky-navbar {
+          position: sticky;
+          top: 100px;
+          z-index: 1000;
+          background: var(--Fourth-color) !important;
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 24px;
+          padding: 20px 10px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .sticky-navbar {
-          position: -webkit-sticky; 
-          position: sticky;
-          top: 10px;
-          z-index: 1000; 
+        .navlink-button {
+          color: var(--sixth-color) !important;
+          border-radius: 16px;
+          margin-bottom: 12px;
+          padding: 12px !important;
+          transition: 0.3s ease;
+          text-align: center;
         }
-        
-        @media (min-width: 575.98px) and (max-width: 1399px) {
-          .navbar-col {
-            display: none !important;
-          }
+
+        .navlink-button:hover, .navlink-button.active-link {
+          color: var(--fifth-color) !important;
+          background: rgba(0, 210, 210, 0.1) !important;
+          border-right: 3px solid var(--fifth-color); /* The indicator line */
+          box-shadow: 0 0 15px rgba(0, 210, 210, 0.2);
+        }
+
+        .nav-icon {
+          font-size: 1.4rem;
+          margin-bottom: 4px;
+          display: block;
         }
       `}
       </style>
-      <div className="d-none d-md-block navbar-col sticky-navbar">
-        <Navbar
-          collapseOnSelect
-          expand="lg"
-          variant="light"
-          className="rounded-3"
-          style={{ backgroundColor: "var(--fifth-color)" }}
-        >
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto flex-column">
-              <Nav.Link as={Link} to="/about" className="navlink-button mt-1">
-                <span>
-                  <i
-                    className="fa-light fa-user"
-                    style={{ fontSize: "25px" }}
-                  ></i>
-                </span>
-                <br />
-                About
-              </Nav.Link>
-              <Nav.Link as={Link} to="/resume" className="navlink-button">
-                <span>
-                  <i
-                    className="fa-light fa-file-lines"
-                    style={{ fontSize: "25px" }}
-                  ></i>
-                </span>
-                <br />
-                Resume
-              </Nav.Link>
-              <Nav.Link as={Link} to="/works" className="navlink-button">
-                <span>
-                  <i
-                    className="fa-light fa-gamepad"
-                    style={{ fontSize: "25px" }}
-                  ></i>
-                </span>
-                <br />
-                My Games
-              </Nav.Link>
-              <Nav.Link as={Link} to="/contact" className="navlink-button">
-                <span>
-                  <i
-                    className="size-22 fa-light fa-address-book"
-                    style={{ fontSize: "25px" }}
-                  ></i>
-                </span>
-                <br />
-                Contact
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+      <div className="d-none d-lg-block navbar-col sticky-navbar">
+        <Nav className="flex-column">
+          {[
+            { path: "/about", label: "About", icon: "bi-person" },
+            { path: "/resume", label: "Resume", icon: "bi-file-earmark-text" },
+            { path: "/works", label: "My Games", icon: "bi-controller" },
+            { path: "/packages", label: "Packages", icon: "bi-box-seam" },
+            { path: "/contact", label: "Contact", icon: "bi-journal-richtext" },
+          ].map((item) => (
+            <Nav.Link
+              key={item.path}
+              as={Link}
+              to={item.path}
+              className={`navlink-button ${location.pathname === item.path ? "active-link" : ""}`}
+            >
+              <i className={`bi ${item.icon} nav-icon`}></i>
+              <span style={{ fontSize: "0.75rem", fontWeight: "600" }}>
+                {item.label}
+              </span>
+            </Nav.Link>
+          ))}
+        </Nav>
       </div>
     </>
   );

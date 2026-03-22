@@ -23,6 +23,22 @@ function Skills() {
           background-color: #005151 !important;
           border: 1px solid #005151 !important;
         }
+
+        .skill-tag {
+          background: rgba(255, 255, 255, 0.05) !important;
+          border: 1px solid rgba(255, 255, 255, 0.1) !important;
+          color: var(--third-color) !important;
+          backdrop-filter: blur(5px);
+          padding: 8px 16px;
+          border-radius: 12px;
+          transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+          background: rgba(0, 210, 210, 0.1) !important;
+          border-color: var(--fifth-color) !important;
+          transform: translateY(-3px);
+        }
       `}
       </style>
       <Col>

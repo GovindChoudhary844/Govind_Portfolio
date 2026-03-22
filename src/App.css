@@ -5,12 +5,12 @@
 }
 
 :root {
-  --primary-color: #fff;
-  --secondary-color: #f3f3f3;
-  --third-color: black;
-  --Fourth-color: #f3f3f3;
+  --primary-color: #ffffff;
+  --secondary-color: #f8f9fa;
+  --third-color: #212529;
+  --Fourth-color: #ffffff;
   --fifth-color: #088F8F;
-  --sixth-color: #696969;
+  --sixth-color: #6c757d;
 }
 
 
@@ -25,15 +25,32 @@
 
 .dark-mode {
   background-image: url("../public/Images/page-bg-dark.jpg");
-  --primary-color: rgba(0, 0, 0, 0.5);
-  ;
-  --secondary-color: #1a1919;
-  --third-color: #fff;
-  --Fourth-color: rgba(0, 0, 0, 0.9);
-  --fifth-color: rgba(0, 0, 0, 0.5);
-  --sixth-color: #f3f3f3;
-  background-color: rgba(0, 0, 0, 0.5);
-  ;
+  --primary-color: #0f172a;
+  /* Deep navy instead of pure black */
+  --secondary-color: #1e293b;
+  --third-color: #f1f5f9;
+  --Fourth-color: rgba(30, 41, 59, 0.7);
+  /* Glass effect */
+  --fifth-color: #00d2d2;
+  /* Vibrant cyan */
+  --sixth-color: #94a3b8;
+}
+
+/* Glassmorphism for Cards */
+.card {
+  border: none !important;
+  backdrop-filter: blur(10px);
+  background: var(--Fourth-color) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease-in-out !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--fifth-color) !important;
 }
 
 .dark-mode body {
@@ -50,10 +67,6 @@
 
 .bg-blue {
   background-color: #0A66C2;
-}
-
-.bg-green {
-  background-color: #088F8F;
 }
 
 .resp-text {
@@ -153,4 +166,93 @@ hr {
   .content {
     margin-top: 15%;
   }
+}
+
+
+/* =========================================
+   Global Component Styles 
+   ========================================= */
+
+/* Modern Gradient Button */
+.bg-green {
+  background: linear-gradient(135deg, #088F8F, #00d2d2) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 10px 25px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(8, 143, 143, 0.3);
+}
+
+.bg-green:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 6px 20px rgba(8, 143, 143, 0.5);
+}
+
+.bg-green:active {
+  background-color: #005151 !important;
+  border: 1px solid #005151 !important;
+}
+
+/* Sidebar Styling */
+.profile-sidebar-container {
+  background: var(--Fourth-color);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Projects: Image Hover Effects */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  /* Placeholder color while loading */
+}
+
+.image-size {
+  width: 100%;
+  /* Forces a consistent professional 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
+  /* Prevents stretching by cropping edges slightly instead */
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  display: block;
+}
+
+.image-container:hover .image-size {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-container:hover .play-icon {
+  opacity: 1;
+}
+
+/* Typography Utilities */
+.italic {
+  font-style: italic;
+}
+
+.page-title {
+  font-weight: 800 !important;
+  letter-spacing: -1px;
+  background: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem !important;
 }

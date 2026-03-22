@@ -1,3 +1,4 @@
+// projectsAPI.js
 const projectsAPI = [
   {
     id: 1,
@@ -5,29 +6,14 @@ const projectsAPI = [
     subname: "2D Platformer Game",
     GitHub_Link: "https://github.com/GovindChoudhary844/Hero_Hop",
     Game_Link: "https://govindchoudhary844.github.io/HeroHop_Game_URL/",
-    description: (
-      <>
-        <div className="resp-h2">HeroHop</div>
-        <br />
-        ▪ Exciting 2D platformer where you play as a brave dragon with unique
-        abilities.
-        <br />
-        ▪ Navigate through challenging levels showcasing skills like movement,
-        jumps, double jumps, wall walks, and fireball attacks.
-        <br />
-        ▪ Face dangerous traps such as arrows, fire, and a menacing spike ball
-        that hunts you down.
-        <br />
-        ▪ Outsmart a formidable knight enemy guarding a secret location.
-        <br />
-        ▪ Collect health items to stay in the fight and conquer two thrilling
-        levels.
-        <br />
-        ▪ Take on the challenge and save the day in this adventure-filled game!
-        <br />
-      </>
-    ),
-
+    description: [
+      "Exciting 2D platformer where you play as a brave dragon with unique abilities.",
+      "Navigate through challenging levels showcasing skills like movement, jumps, double jumps, wall walks, and fireball attacks.",
+      "Face dangerous traps such as arrows, fire, and a menacing spike ball that hunts you down.",
+      "Outsmart a formidable knight enemy guarding a secret location.",
+      "Collect health items to stay in the fight and conquer two thrilling levels.",
+      "Take on the challenge and save the day in this adventure-filled game!",
+    ],
     imagecharacter: "Images/Projects/HeroHop/6.png",
     imagesDesktop: [
       "Images/Projects/HeroHop/1.png",
@@ -44,30 +30,14 @@ const projectsAPI = [
     subname: "2D Platformer Game",
     GitHub_Link: "https://github.com/GovindChoudhary844/Survive_the_shadows",
     Game_Link: "https://govindchoudhary844.github.io/Survive_the_shadows_URL/",
-    description: (
-      <>
-        <div className="resp-h2">Survive the Shadows</div>
-        <br />
-        ▪ Action-packed 2D platformer featuring a hero with a sword, capable of
-        3 unique attack moves, a jump attack, and arrow throwing.
-        <br />
-        ▪ Battle against a vigilant knight who patrols and detects walls and
-        edges, and a FlyingEye that attacks when in range.
-        <br />
-        ▪ Collect health pickups to stay in the fight and enhance your survival
-        chances.
-        <br />
-        ▪ Smooth camera transitions powered by Cinemachine and responsive
-        controls using Unity's Input System.
-        <br />
-        ▪ Beautifully designed levels using the 2D Tilemap Editor, offering a
-        visually engaging experience.
-        <br />
-        ▪ Thrilling and immersive gameplay that challenges your skills and
-        reflexes.
-        <br />
-      </>
-    ),
+    description: [
+      "Action-packed 2D platformer featuring a hero with a sword, capable of 3 unique attack moves, a jump attack, and arrow throwing.",
+      "Battle against a vigilant knight who patrols and detects walls and edges, and a FlyingEye that attacks when in range.",
+      "Collect health pickups to stay in the fight and enhance your survival chances.",
+      "Smooth camera transitions powered by Cinemachine and responsive controls using Unity's Input System.",
+      "Beautifully designed levels using the 2D Tilemap Editor, offering a visually engaging experience.",
+      "Thrilling and immersive gameplay that challenges your skills and reflexes.",
+    ],
     imagecharacter: "Images/Projects/Survive_the_shadows/Profile.png",
     imagesDesktop: [
       "Images/Projects/Survive_the_shadows/1.png",
@@ -87,33 +57,15 @@ const projectsAPI = [
     subname: "2D Top-Down RPG",
     GitHub_Link: "https://github.com/GovindChoudhary844/2D-Top-Down-RPG",
     Game_Link: "https://govindchoudhary844.github.io/2D-Top-Down-RPG-URL/",
-    description: (
-      <>
-        <div className="resp-h2">2D Top-Down RPG Game</div>
-        <br />
-        <br />
-        ▪ Implements a player input system for smooth and responsive controls.
-        <br />
-        ▪ Features dynamic animations for player and enemy actions, including
-        dashing and knockback.
-        <br />
-        ▪ Includes a modular weapon system with melee, ranged attacks, and
-        cooldown management.
-        <br />
-        ▪ Provides interactive environments with destructible objects, rule
-        tiles, and portal effects.
-        <br />
-        ▪ Enhances gameplay with 2D lighting, fade transitions, and camera
-        control using Cinemachine.
-        <br />
-        ▪ Supports multiple scenes with seamless transitions and immersive
-        effects.
-        <br />
-        ▪ Designed a user-friendly UI with toggle options and transparency
-        settings for better gameplay experience.
-        <br />
-      </>
-    ),
+    description: [
+      "Implements a player input system for smooth and responsive controls.",
+      "Features dynamic animations for player and enemy actions, including dashing and knockback.",
+      "Includes a modular weapon system with melee, ranged attacks, and cooldown management.",
+      "Provides interactive environments with destructible objects, rule tiles, and portal effects.",
+      "Enhances gameplay with 2D lighting, fade transitions, and camera control using Cinemachine.",
+      "Supports multiple scenes with seamless transitions and immersive effects.",
+      "Designed a user-friendly UI with toggle options and transparency settings for better gameplay experience.",
+    ],
     imagecharacter: "Images/Projects/2D_Top_Down_RPG/1.png",
     imagesDesktop: [
       "Images/Projects/2D_Top_Down_RPG/1.png",
@@ -131,25 +83,13 @@ const projectsAPI = [
     subname: "Blow all the Bubbles with Balls",
     GitHub_Link: "https://github.com/GovindChoudhary844/Ballz",
     Game_Link: "https://govindchoudhary844.github.io/Ballz_URL/",
-    description: (
-      <>
-        <div className="resp-h2">Ballz Game</div>
-        <br />
-        1. This is a 2D game where the player controls a gun that can shoot
-        multiple balls.
-        <br />
-        2. Bubbles appear on the screen, each with a random number between 1 and
-        9.
-        <br />
-        3. The balls bounce off the bubbles, and each hit reduces the bubble's
-        number.
-        <br />
-        4. When a bubble’s number reaches 0, a pop animation is played and the
-        bubble gets destroyed.
-        <br />
-        5. The game ends once all the bubbles are destroyed.
-      </>
-    ),
+    description: [
+      "This is a 2D game where the player controls a gun that can shoot multiple balls.",
+      "Bubbles appear on the screen, each with a random number between 1 and 9.",
+      "The balls bounce off the bubbles, and each hit reduces the bubble's number.",
+      "When a bubble’s number reaches 0, a pop animation is played and the bubble gets destroyed.",
+      "The game ends once all the bubbles are destroyed.",
+    ],
     imagecharacter: "Images/Projects/Ballz/Front.png",
     imagesDesktop: [
       "Images/Projects/Ballz/Front.png",
@@ -164,21 +104,13 @@ const projectsAPI = [
     subname: "Ludo With AI Player",
     GitHub_Link: "https://github.com/GovindChoudhary844/Ludo",
     Game_Link: "https://govindchoudhary844.github.io/Ludo_URL/",
-    description: (
-      <>
-        <div className="resp-h2">Ludo Game</div>
-        <br />
-        1. Developed a Unity 2D Ludo game with player vs AI mode.
-        <br />
-        2. Added a menu to choose the number of players (2, 3, or 4).
-        <br />
-        3. Included options to select the number of gotis (1, 2, 3, or 4).
-        <br />
-        4. Designed a game-over screen that shows the players' total scores.
-        <br />
-        5. Focused on user-friendly design and smooth gameplay.
-      </>
-    ),
+    description: [
+      "Developed a Unity 2D Ludo game with player vs AI mode.",
+      "Added a menu to choose the number of players (2, 3, or 4).",
+      "Included options to select the number of gotis (1, 2, 3, or 4).",
+      "Designed a game-over screen that shows the players' total scores.",
+      "Focused on user-friendly design and smooth gameplay.",
+    ],
     imagecharacter: "Images/Projects/Ludo/Cover.png",
     imagesDesktop: [
       "Images/Projects/Ludo/Cover.png",
@@ -194,21 +126,13 @@ const projectsAPI = [
     GitHub_Link: "https://github.com/GovindChoudhary844/Ludo",
     Game_Link:
       "https://www.youtube-nocookie.com/embed/f4kF9cBEGow?autoplay=0&rel=0&modestbranding=1",
-    description: (
-      <>
-        <div className="resp-h2">Zombie TPS</div>
-        <br />
-        1. Developed a Unity 2D Ludo game with player vs AI mode.
-        <br />
-        2. Added a menu to choose the number of players (2, 3, or 4).
-        <br />
-        3. Included options to select the number of gotis (1, 2, 3, or 4).
-        <br />
-        4. Designed a game-over screen that shows the players' total scores.
-        <br />
-        5. Focused on user-friendly design and smooth gameplay.
-      </>
-    ),
+    description: [
+      "Developed a Unity 2D Ludo game with player vs AI mode.",
+      "Added a menu to choose the number of players (2, 3, or 4).",
+      "Included options to select the number of gotis (1, 2, 3, or 4).",
+      "Designed a game-over screen that shows the players' total scores.",
+      "Focused on user-friendly design and smooth gameplay.",
+    ],
     imagecharacter: "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
     imagesDesktop: [
       "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
@@ -223,23 +147,13 @@ const projectsAPI = [
     subname: "Angry Bird Game",
     GitHub_Link: "https://github.com/GovindChoudhary844/AngryBird",
     Game_Link: "https://govindchoudhary844.github.io/AngryBird_WebGL/",
-    description: (
-      <>
-        <div className="resp-h2">Angry Bird</div>
-        <br />
-        1. Developed a physics-based 2D Angry Bird-style game using Unity.
-        <br />
-        2. Implemented a slingshot mechanic for launching birds toward enemy
-        structures.
-        <br />
-        3. Designed destructible environments using rigidbodies and colliders.
-        <br />
-        4. Created multiple levels with increasing difficulty and strategic
-        layouts.
-        <br />
-        5. Focused on smooth gameplay, realistic physics, and engaging visuals.
-      </>
-    ),
+    description: [
+      "Developed a physics-based 2D Angry Bird-style game using Unity.",
+      "Implemented a slingshot mechanic for launching birds toward enemy structures.",
+      "Designed destructible environments using rigidbodies and colliders.",
+      "Created multiple levels with increasing difficulty and strategic layouts.",
+      "Focused on smooth gameplay, realistic physics, and engaging visuals.",
+    ],
     imagecharacter: "Images/Projects/Angry Bird/Front.png",
     imagesDesktop: [
       "Images/Projects/Angry Bird/Front.png",
@@ -255,59 +169,18 @@ const projectsAPI = [
     GitHub_Link: "https://github.com/GovindChoudhary844/SnakeRush",
     Game_Link:
       "https://www.youtube-nocookie.com/embed/FWqvyjuSJAY?autoplay=0&rel=0& modestbranding=1",
-    description: (
-      <>
-        <div className="resp-h2">Snake Rush – Multiplayer</div>
-        <br />
-        1. A real-time, competitive climb-'em-up where your snake races
-        endlessly upward through a deadly wall of numbered blocks.
-        <br />
-        <br />
-        2. Crash into a block and its value drops while your snake loses the
-        same amount of body segments—strategy matters more than brute force.
-        <br />
-        <br />
-        3. Collect glowing “body-part balls” scattered on the path; each ball
-        carries a random integer that instantly grows your tail by that exact
-        count.
-        <br />
-        <br />
-        4. Grab lightning-bolt power-ups to enter hyper-speed: every block you
-        touch vaporises in a single hit and its points are banked straight to
-        your score.
-        <br />
-        <br />
-        5. Blocks react visually—shifting hue from solid to cracked to
-        crimson—as they absorb damage, giving instant feedback on how close they
-        are to breaking.
-        <br />
-        <br />
-        6. Score logic rewards aggression: the exact damage you deal to a block
-        is added to your running total; when the level ends, every surviving
-        segment delivers a bonus payout.
-        <br />
-        <br />
-        7. Built for head-to-head rivalry: a sleek lobby lets two players join,
-        countdown starts, then each contender has exactly 2 minutes 30 seconds
-        to rack up the highest score.
-        <br />
-        <br />
-        8. Session ends with a splash-screen crown for the winner and a
-        one-click download link so you can keep the bragging rights forever.
-        <br />
-        <br />
-        <div className="resp-h6">
-          DownLoad Link:{" "}
-          <a
-            href="https://drive.google.com/file/d/1w5MfZwBkbJgGdJRM0AoHn0m4rXvCYty7/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            https://drive.google.com/file/d/1w5MfZwBkbJgGdJRM0AoHn0m4rXvCYty7/view?usp=sharing
-          </a>
-        </div>
-      </>
-    ),
+    Download_Link:
+      "https://drive.google.com/file/d/1w5MfZwBkbJgGdJRM0AoHn0m4rXvCYty7/view?usp=sharing",
+    description: [
+      "A real-time, competitive climb-'em-up where your snake races endlessly upward through a deadly wall of numbered blocks.",
+      "Crash into a block and its value drops while your snake loses the same amount of body segments—strategy matters more than brute force.",
+      "Collect glowing “body-part balls” scattered on the path; each ball carries a random integer that instantly grows your tail by that exact count.",
+      "Grab lightning-bolt power-ups to enter hyper-speed: every block you touch vaporises in a single hit and its points are banked straight to your score.",
+      "Blocks react visually—shifting hue from solid to cracked to crimson—as they absorb damage, giving instant feedback on how close they are to breaking.",
+      "Score logic rewards aggression: the exact damage you deal to a block is added to your running total; when the level ends, every surviving segment delivers a bonus payout.",
+      "Built for head-to-head rivalry: a sleek lobby lets two players join, countdown starts, then each contender has exactly 2 minutes 30 seconds to rack up the highest score.",
+      "Session ends with a splash-screen crown for the winner and a one-click download link so you can keep the bragging rights forever.",
+    ],
     imagecharacter: "Images/Projects/SnakeRush/SnakeRush.png",
     imagesDesktop: [
       "Images/Projects/SnakeRush/SnakeRush.png",
@@ -322,25 +195,13 @@ const projectsAPI = [
     subname: "Survival Game",
     GitHub_Link: "https://github.com/GovindChoudhary844/EnemyDodge",
     Game_Link: "https://govindchoudhary844.github.io/EnemyDodge_WebGL/",
-    description: (
-      <>
-        <div className="resp-h2">EnemyDodge – Survival Challenge</div>
-        <br />
-        • Enemies fall randomly from above with different speeds and damage —
-        every run feels unique.
-        <br />
-        • Move left and right to dodge danger, and use the dash ability to
-        escape deadly situations.
-        <br />
-        • Health is tracked in real-time — one mistake, and it’s Game Over.
-        <br />
-        • Explosions and random sound effects bring an arcade-style feel to
-        every impact.
-        <br />• The longer you survive, the faster enemies spawn — reflexes are
-        the only way to win.
-      </>
-    ),
-
+    description: [
+      "Enemies fall randomly from above with different speeds and damage — every run feels unique.",
+      "Move left and right to dodge danger, and use the dash ability to escape deadly situations.",
+      "Health is tracked in real-time — one mistake, and it’s Game Over.",
+      "Explosions and random sound effects bring an arcade-style feel to every impact.",
+      "The longer you survive, the faster enemies spawn — reflexes are the only way to win.",
+    ],
     imagecharacter: "Images/Projects/EnemyDodge/1.png",
     imagesDesktop: [
       "Images/Projects/EnemyDodge/1.png",

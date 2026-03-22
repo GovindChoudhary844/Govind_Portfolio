@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+// App.js
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Container, Row, Col } from "react-bootstrap";
@@ -9,19 +10,20 @@ import About from "./Screens/About";
 import Resume from "./Screens/Resume";
 import Works from "./Screens/Works";
 import Contact from "./Screens/Contact";
+import Packages from "./Screens/Packages";
 
-import ProjectsScreen from "../src/Screens/ProjectsScreen";
+import GameDetailsScreen from "../src/Screens/GameDetailsScreen";
+import PackageDetailsScreen from "./Screens/PackageDetailsScreen";
 
 import ScrollToTop from "./Components/ScrollToTop";
 import ScrollToTopButton from "./Components/ScrollToTopButton";
+import { ThemeContext } from "./Components/ThemeContext"; // Make sure this path matches where you saved it!
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+  // We now pull darkMode directly from the global Context instead of local state
+  const { darkMode } = useContext(ThemeContext);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevDarkMode) => !prevDarkMode);
-  };
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
   // Update `isMobile` on window resize
   useEffect(() => {
@@ -44,7 +46,8 @@ function App() {
           }`}
         >
           <Row>
-            <Topmenu darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            {/* Topmenu no longer needs props, it will pull from Context itself! */}
+            <Topmenu />
           </Row>
           <ScrollToTop />
           <ScrollToTopButton />
@@ -79,9 +82,14 @@ function App() {
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/works" element={<Works />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/packages" element={<Packages />} />
+                <Route
+                  path="/packages/:packageId"
+                  element={<PackageDetailsScreen />}
+                />
                 <Route
                   path="/projects/:projectId"
-                  element={<ProjectsScreen />}
+                  element={<GameDetailsScreen />}
                 />
               </Routes>
             </Col>
