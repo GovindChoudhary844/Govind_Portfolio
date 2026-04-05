@@ -133,12 +133,12 @@ const projectsAPI = [
       "Designed a game-over screen that shows the players' total scores.",
       "Focused on user-friendly design and smooth gameplay.",
     ],
-    imagecharacter: "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
+    imagecharacter: "Images/Projects/Zombie TPS/Zombie Wallpapers.png",
     imagesDesktop: [
-      "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
-      "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
-      "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
-      "Images/Projects/Zombie TPS/Zombie Wallpapers.jpg",
+      "Images/Projects/Zombie TPS/Zombie Wallpapers.png",
+      "Images/Projects/Zombie TPS/Zombie Wallpapers.png",
+      "Images/Projects/Zombie TPS/Zombie Wallpapers.png",
+      "Images/Projects/Zombie TPS/Zombie Wallpapers.png",
     ],
   },
   {
